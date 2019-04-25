@@ -51,24 +51,23 @@ console.log('Exercise 2: Rock, Paper, Scissors');
 const hands = ['paper', 'rock', 'scissors'];
 
 // Define a function called getHand() that returns a hand from the array using parseInt(Math.random()*10)%3)
-// Define two objects for two players. Each player has name and getHand() properties.
 
 function getHand() {
     let i = parseInt(Math.random() * 10) % 3;
     return hands[i];
 }
 
-function Player (name, hand, score) {
+// Define two objects for two players. Each player has name and getHand() properties.
+
+function Player (name, score) {
     return {
         name: name,
-        hand: hand,
         score: score
     }
 }
 
-const player1 = Player('Player 1', getHand(), 0);
-const player2 = Player('Player 2', getHand(), 0);
-
+const player1 = Player('Player 1', 0);
+const player2 = Player('Player 2', 0);
 // Define a function called playRound() that
 // Takes two player objects as arguments
 // Gets hands from each
@@ -78,8 +77,9 @@ const player2 = Player('Player 2', getHand(), 0);
 // Returns the winner object (null if no winner)
 
 function playRound(p1,p2) {
-    let hand1 = p1.hand;
-    let hand2 = p2.hand;
+   let hand1 = player1.hand = getHand();
+   let hand2 = player2.hand = getHand();
+
     let winner = '';
 
     if (hand1 === hand2) {
@@ -120,38 +120,34 @@ function playRound(p1,p2) {
             winner = p1;
         }
     }
-  winner.score++;
+    if (winner  !== null) {
+        winner.score++;
+    }
     return winner;
 }
-
-playRound(player1, player2);
-
-
-
 
 // Define a function called playGame() that takes arguments player1, player2, and playUntil.
 // Play rounds until one of the players wins playUntil hands
 // When one player has won enough games, return the winning player object
 // Play a game to 5 wins
 
-// function playGame(player1, player2, playUntil) {
-//     let counter = 0;
-//     let winner = '';
-//     let winnerArr = [];
-//     for (let i = 0; i < playUntil; i++) {
-//         counter++;
-//         winner = playRound(player1, player2).slice(-7);
-//         winnerArr.push(winner[0]);
-//         console.log('slicey slicey: ', winnerArr)
-//         console.log('counter is: ', counter);
-//         console.log('playGame winner is: ', winner);
-//     }
-//     return winner;
-// }
+function playGame(player1, player2, playUntil) {
+    let p1 = player1.score;
+    let p2 = player2.score;
+    let tie = 0;
+    let winner = '';
 
-// console.log(playGame(player1, player2, 5));
+    while (player1.score <playUntil && player2.score < playUntil || tie > 20) {
+        tie++
+        console.log('tie = ', tie);
+        console.log('this is p1 in playGame func: ', player1);
+        let winner = playRound(player1, player2);
+        console.log(winner);
+    }
+    return winner;
+}
 
-
+playGame(player1, player2, 5);
 // Bonus Questions
 // Define a function called playTournament():
 
@@ -160,38 +156,33 @@ playRound(player1, player2);
 // Play a game between the winners of the first round.
 // Announce the tournament winner's name "[name] is the world champion";
 
-/*-------------------------------------------------------------------------*/
-/*------------------------this prints works on dom --------------------------------*/
 
 
 
 
-// let userTip = document.getElementById('tip');
-// let userTab = document.getElementById('bill');
-// let form = document.getElementById('form');
-// const totalLog = document.getElementById('total');
-
-// form.addEventListener('submit', function(event) {
-//     event.preventDefault();
-//     calculate();
-//     console.log('user tip : ', userTip.value);
-// });
-
-// function click(event) {
-//     event.preventDefault();
-//     console.log('click')
-// }
 
 
-// function calculate(percent, total) {
-//     console.log(percent)
-//     percent = parseInt(userTip.value);
-//     total = parseInt(userTab.value);
-//     percent /= 100;
-//     console.log('percent', percent);
-//     let tip = percent * total;
-//     console.log(tip + total);
-//     return `Your total is $${totalLog.textContent = tip + total}`;
-// }
 
-/*-------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
