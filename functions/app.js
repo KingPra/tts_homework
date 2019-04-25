@@ -7,6 +7,7 @@
 // multiply the value of billAmount by 20%
 // hint: use 0.2
 // return the value
+
 console.log('gratuity');
 
 const billAmount = Math.round(Math.random() * 100);
@@ -159,6 +160,15 @@ function playTournament(player1, player2, player3, player4, playUntil) {
     let winner2 = '';
     let champ = '';
     let tie = 0;
+
+/* -----------dry code currently not operational---------*/
+console.log('playtounamanet here');
+for (let i= 0; i < 3; i++) {
+    let playerArr = [player1, player2, player3, player4];
+    
+ }
+/*-----------------------------------------*/
+
 // runs game for player1 and player 2
     while (player1.score <playUntil && player2.score < playUntil || tie > 20) {
     tie++
@@ -181,53 +191,42 @@ function playTournament(player1, player2, player3, player4, playUntil) {
 
     champ = playGame(winner1, winner2, playUntil);
     }
-    console.log('cchamp mode', champ);
-    return champ;
 
+    return `${champ.name} is the world champion`;
 }
 
-playTournament(player1, player2, player3, player4, 5);
+
+console.log(playTournament(player1, player2, player3, player4, 5));
 
 
 
 
 
 
-//travis code
 
-// Create a Rock, Paper, Scissors Game//
+/////// Study this/////////////////////////////////////////////////////
+
+// //travis code
+
+// // Create a Rock, Paper, Scissors Game//
 
 
-// var game = "Let's play a game!"
-// var userName = prompt("What is your name?");
-// console.log('uersname is: ', userName);
-// // Used a method that allows for the computer to choose
-// var computerInput = Math.ceil(Math.random() * 3);
-// // var userAnswer = prompt("Rock", "Paper", "Scissors")
 
-// // Created a string that responds to the user input
-// prompt("What's up, "+ name + "?" + " " + game)
-
-// // Created responsive interaction between computer and user.
-// var userAnswer = prompt("Rock, Paper, Scissors");
-
-// // User repsonse converted to lowercase
-//  userAnswer = userAnswer.toLowerCase();
 
 // // created a variable with a choice response for the computer
 // var computerResponse = ['paper', 'rock', 'scissors'];
-
+// let userName = 'paper';
 // // used a method .indexOf that was listed on our class slides 
 // // however we never spoke about it in detail.
 
 // var usernameIndex = computerResponse.indexOf(userName);
-
+// console.log(usernameIndex);
 // // utilized another method that we learned in class
 // var randomNum = Math.floor(Math.random() * 3);
 // var computerChoice = computerResponse[randomNum];
 
 // // Display the choices of both the user and the computer
-// console.log(`Your choice is ${userAnswer}, the computer's choice is ${computerChoice}.`);
+// //console.log(`Your choice is ${userAnswer}, the computer's choice is ${computerChoice}.`);
 
 // // This was tricky however based on what we've learned about arrays in class
 // // There had to be an easiser more efficient way to iterate through the possibilties
