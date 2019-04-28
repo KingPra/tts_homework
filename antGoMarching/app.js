@@ -8,7 +8,7 @@
 // Use your debugger to track those errors down
 // We've already given you a debugger statement to start with.
 // Your finished output should be something like this:
-
+console.log("Exercise 2");
 var littleOne = [];
 var howTheyMarch = [
   "one by one",
@@ -52,3 +52,51 @@ function howManyByHowMany(number) {
 
   console.log(march + hurrah + march + hurrah + march);
 }
+
+//exercise 3
+console.log("Exercise 3");
+var woolOwners = [
+  {
+    master: 1
+  },
+  {
+    dame: 1
+  },
+  {
+    "little boy": 1,
+    location: "down the lane"
+  }
+];
+
+var haveYouAnyWool = function() {
+  for (var i = 0; i < woolOwners.length; i++) {
+    var totalBags = totalBags + i;
+  }
+  return i;
+};
+
+var bags = haveYouAnyWool();
+
+function baabaaBlackSheep() {
+  console.log("BaaBaa BlackSheep have you any wool?");
+  if (bags > 0) {
+    console.log("yes sir, yes sir " + bags + " bags full");
+  }
+}
+
+function oneForMy() {
+  for (var i = 0; i < 2; i++) {
+    people = Object.keys(woolOwners[i]);
+    var person = people.toString();
+    console.log("one for my " + person);
+  }
+}
+
+baabaaBlackSheep();
+oneForMy();
+
+var boy = woolOwners[2];
+var littleBoy = Object.keys(boy)[0];
+
+var whereHeLives = boy.location;
+console.log("one for the " + littleBoy + " that lives " + whereHeLives);
