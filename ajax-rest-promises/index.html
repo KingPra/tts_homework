@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ajax, Rest & Promises</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>Ajax, Rest and Promises</h1>
+    <!-- // Exercise 1: REST
+// Create buttons that do each of the tasks below
+// Render the results to the page in html elements.
+// Hide the results from the previous actions
+// Get all posts
+// Get post with id of 10
+// Get the comments from post with id of 12
+// note: comments are part of a different data model, you'll need to structure your endpoint to ask for all of the comments that belong to post #12
+// Get all the posts from user with id of 2
+// Create a new post and log the id generated for it by the server
+// Replace the post with id of 12 and render the responseJSON
+// Update the title of post with id of 12 and render responseJSON
+// Delete the post with id of 12 and render a success message
+// Display a list of posts.
+// When the user clicks on a post, display all the comments from that post
+// Display a link back to all posts -->
+    <div class="container">
+      <button id="get-all" onclick="getAll()">Get All Posts</button>
+      <button id="hide" onclick="hideAll()">Hide</button>
+      <button id="replace" onclick="replacePost()">Replace Post 12</button>
+      <button id="update" onclick="updateTitle()">Update Post 12 Title</button>
+      <button id="delete" onclick="deletePost()">
+        Delete Post 12
+      </button>
+      <button id="update">Update</button>
+      <form id="getById">
+        <label
+          >Get Post by ID
+          <input type="number" placeholder="get post by user id" id="userId" />
+          <input type="submit" placeholder="Get Post" />
+        </label>
+      </form>
+      <form id="getComments">
+        <label
+          >Get Comments by ID
+          <input type="number" placeholder="get post by user id" id="userId2" />
+          <input type="submit" placeholder="Get Comment" />
+        </label>
+      </form>
+      <form id="create-post">
+        <label>
+          Create a New Post:
+          <input type="text" placeholder="Title of Post" id="createTitle" />
+          <input type="text" placeholder="Post Body" id="createBody" />
+          <input type="submit" placeholder="Submit" />
+        </label>
+      </form>
+      <div id="posts">
+        <ul id="post"></ul>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>

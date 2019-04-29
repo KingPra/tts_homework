@@ -1,0 +1,15 @@
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+li {
+  border: solid 1px black;
+  list-style: none;
+  padding: 5px;
+  margin: 5px auto;
+  text-align: center;
+}
