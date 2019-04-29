@@ -15,6 +15,7 @@
 // When the user clicks on a post, display all the comments from that post
 // Display a link back to all posts
 
+const url = "http://jsonplaceholder.typicode.com/posts";
 const blog = document.querySelector("#post");
 const display = data => {
   console.log(data.length);
@@ -71,7 +72,7 @@ const hideAll = () => {
 };
 
 const getAll = () => {
-  $.get("http://jsonplaceholder.typicode.com/posts", data => {
+  $.get(url, data => {
     console.log(data);
     display(data);
   });
@@ -81,9 +82,7 @@ const getAll = () => {
 let post = document.querySelector("#getById");
 post.addEventListener("submit", e => {
   e.preventDefault();
-  $.get(`http://jsonplaceholder.typicode.com/posts/${userId.value}`, function(
-    data
-  ) {
+  $.get(`${url}/${userId.value}`, function(data) {
     console.log(data);
     display(data);
   });
@@ -93,13 +92,10 @@ post.addEventListener("submit", e => {
 let getComments = document.querySelector("#getComments");
 getComments.addEventListener("submit", e => {
   e.preventDefault();
-  $.get(
-    `http://jsonplaceholder.typicode.com/posts/${userId2.value}/comments`,
-    function(data) {
-      console.log(data);
-      displayComments(data);
-    }
-  );
+  $.get(`${url}/${userId2.value}/comments`, function(data) {
+    console.log(data);
+    displayComments(data);
+  });
 });
 
 const displayComments = data => {
@@ -129,7 +125,7 @@ createPost.addEventListener("submit", e => {
   e.preventDefault();
   console.log("new psot runnign", createTitle.value);
   $.post(
-    "http://jsonplaceholder.typicode.com/posts",
+    url,
     {
       userId: 1,
       title: createTitle.value,
@@ -145,7 +141,7 @@ createPost.addEventListener("submit", e => {
 const replacePost = () => {
   $.ajax({
     method: "PUT",
-    url: "http://jsonplaceholder.typicode.com/posts/12",
+    url: `${url}/12`,
     data: {
       userId: 1,
       title: "Replace post",
@@ -159,7 +155,7 @@ const replacePost = () => {
 const updateTitle = () => {
   $.ajax({
     method: "PATCH",
-    url: "http://jsonplaceholder.typicode.com/posts/12",
+    url: `${url}/12`,
     data: {
       title: "title is updated"
     },
@@ -171,7 +167,7 @@ const updateTitle = () => {
 const deletePost = () => {
   $.ajax({
     method: "DELETE",
-    url: "http://jsonplaceholder.typicode.com/posts/12",
+    url: `${url}/12`,
     complete: response => console.log(response.statusText)
   });
 };
