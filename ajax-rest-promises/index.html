@@ -22,7 +22,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <h1>Ajax, Rest and Promises</h1>
+    <h1 class="text-center p-3 m-3">Ajax, Rest and Promises</h1>
     <!-- // Exercise 1: REST
 // Create buttons that do each of the tasks below
 // Render the results to the page in html elements.
@@ -40,40 +40,73 @@
 // When the user clicks on a post, display all the comments from that post
 // Display a link back to all posts -->
     <div class="jumbotron">
-      <button id="get-all" onclick="getAll()">Get All Posts</button>
-      <button id="hide" onclick="hideAll()">Hide</button>
-      <button id="replace" onclick="replacePost()">Replace Post 12</button>
-      <button id="update" onclick="updateTitle()">Update Post 12 Title</button>
-      <button id="delete" onclick="deletePost()">
-        Delete Post 12
-      </button>
-      <button id="update">Update</button>
-      <form id="getById">
-        <label
-          >Get Post by ID
-          <input type="number" placeholder="get post by user id" id="userId" />
-          <input type="submit" placeholder="Get Post" />
-        </label>
-      </form>
-      <form id="getComments">
-        <label
-          >Get Comments by ID
-          <input type="number" placeholder="get post by user id" id="userId2" />
-          <input type="submit" placeholder="Get Comment" />
-        </label>
-      </form>
-      <form id="create-post">
-        <label>
-          Create a New Post:
-          <input type="text" placeholder="Title of Post" id="createTitle" />
-          <input type="text" placeholder="Post Body" id="createBody" />
-          <input type="submit" placeholder="Submit" />
-        </label>
-      </form>
+      <div class="text-center">
+        <button class="btn btn-dark" id="get-all" onclick="getAll()">
+          Get All Posts
+        </button>
+        <button class="btn btn-dark" id="hide" onclick="hideAll()">
+          Hide
+        </button>
+        <button class="btn btn-dark" id="replace" onclick="replacePost()">
+          Replace Post 12
+        </button>
+        <button class="btn btn-dark" id="update" onclick="updateTitle()">
+          Update Post 12 Title
+        </button>
+        <button class="btn btn-dark" id="delete" onclick="deletePost()">
+          Delete Post 12
+        </button>
+        <button class="btn btn-dark " id="update">Update</button>
+        <form class="m-2 form-group" id="getById">
+          <label
+            >Get Post by ID
+            <input
+              class="form-control"
+              type="number"
+              placeholder="get post by user id"
+              id="userId"
+            />
+            <input
+              class="btn btn-dark m-2"
+              type="submit"
+              placeholder="Get Post"
+            />
+          </label>
+        </form>
+        <form class="m-2 form-group"id="getComments">
+          <label
+            >Get Comments by ID
+            <input
+            class="form-control"
+              type="number"
+              placeholder="get post by user id"
+              id="userId2"
+            />
+            <input
+              class="btn btn-dark m-2"
+              type="submit"
+              placeholder="Get Comment"
+            />
+          </label>
+        </form>
+        <form  class="form-group id="create-post">
+          <label>
+            Create a New Post:
+            <input  class="form-control m-2" type="text" placeholder="Title of Post" id="createTitle" />
+            <textarea  class="form-control m-2" type="text" placeholder="Post Body" id="createBody" row="3"></textarea>
+            <input
+              class="btn btn-dark m-2"
+              id="create-post"
+              type="submit"
+              placeholder="Submit"
+            />
+          </label>
+        </form>
+      </div>
     </div>
     <div class="container">
       <div id="posts">
-        <ul class="card" id="post"></ul>
+        <ul class="card bg-light mb-3" id="post"></ul>
       </div>
     </div>
     <script src="./app.js"></script>

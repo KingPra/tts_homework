@@ -1,37 +1,18 @@
-// Exercise 1: REST
-// Create buttons that do each of the tasks below
-// Render the results to the page in html elements.
-// Hide the results from the previous actions
-// Get all posts
-// Get post with id of 10
-// Get the comments from post with id of 12
-// note: comments are part of a different data model, you'll need to structure your endpoint to ask for all of the comments that belong to post #12
-// Get all the posts from user with id of 2
-// Create a new post and log the id generated for it by the server
-// Replace the post with id of 12 and render the responseJSON
-// Update the title of post with id of 12 and render responseJSON
-// Delete the post with id of 12 and render a success message
-// Display a list of posts.
-// When the user clicks on a post, display all the comments from that post
-// Display a link back to all posts
-
 const url = "http://jsonplaceholder.typicode.com";
 const blog = document.querySelector("#post");
 blog.className = "card-body";
+
+// logic for displaying returned data, comment and posts data are different
 const display = data => {
-  console.log(data.length);
   const displayPost = document.querySelector("#get-all");
   if (data.length === undefined) {
-    console.log("post runner");
-
-    let post = data;
     let header = document.createElement("h2");
     let author = document.createElement("h4");
     let list = document.createElement("li");
     let body = document.createElement("p");
-    let id = document.createTextNode(`Author: ${post.userId}`);
-    let postTitle = document.createTextNode(post.title);
-    let postBody = document.createTextNode(post.body);
+    let id = document.createTextNode(`Author: ${data.userId}`);
+    let postTitle = document.createTextNode(data.title);
+    let postBody = document.createTextNode(data.body);
 
     header.appendChild(postTitle);
     body.appendChild(postBody);
@@ -224,7 +205,7 @@ const deletePost = () => {
   $.ajax({
     method: "DELETE",
     url: `${url}/posts/12`,
-    complete: response => console.log(response, response.statusText)
+    complete: response => console.log(response.statusText)
   });
 };
 
