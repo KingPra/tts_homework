@@ -45,7 +45,6 @@ const display = data => {
       let author = document.createElement("h4");
       let list = document.createElement("li");
       let body = document.createElement("p");
-
       let id = document.createTextNode(`Author: ${post.userId}`);
       let postTitle = document.createTextNode(post.title);
       let postBody = document.createTextNode(post.body);
@@ -56,10 +55,29 @@ const display = data => {
       list.appendChild(body);
       list.appendChild(author);
       blog.appendChild(list);
-      list.addEventListener("click", console.log("hella click"));
+      let kylesButton = $(
+        "<button class='link' data-link='http://jsonplaceholder.typicode.com/posts/" +
+          post.userId +
+          "/comments/' >"
+      ).text("Comments");
+      $(body).append(kylesButton);
     });
   }
 };
+
+//kyle's help
+$(document).on("click", ".link", () => {
+  var myData = $(document.querySelector(".link")).data("link");
+  console.log(myData);
+  $("#post").empty();
+  $.ajax({
+    url: myData,
+    method: "GET"
+  }).then(res => {
+    console.log(res);
+    displayComments(res);
+  });
+});
 
 // toggles hide/show posts
 const hideAll = () => {
@@ -116,8 +134,37 @@ const displayComments = data => {
     list.appendChild(body);
     list.appendChild(author);
     blog.appendChild(list);
+    let postsButton = $(
+      "<button class='link2' data-link='http://jsonplaceholder.typicode.com/posts' >"
+    ).text("Back To Posts");
+    $(body).append(postsButton);
   });
 };
+
+$(document).on("click", ".link2", function() {
+  var myData = $(this).data("link");
+  $("#post").empty();
+  $.ajax({
+    url: myData,
+    method: "GET"
+  }).then(res => {
+    console.log(res);
+    display(res);
+  });
+});
+//kyle style
+// $(document).on("click", ".link2", () => {
+//   var myData = $(document.querySelector(".link2")).data("link");
+//   console.log(myData);
+//   $("#post").empty();
+//   $.ajax({
+//     url: myData,
+//     method: "GET"
+//   }).then(res => {
+//     console.log(res);
+//     display(res);
+//   });
+// });
 
 // create a new post and log id;
 const createPost = document.querySelector("#create-post");

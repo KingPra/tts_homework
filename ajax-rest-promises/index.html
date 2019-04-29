@@ -6,7 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Ajax, Rest & Promises</title>
     <link rel="stylesheet" href="./style.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </head>
   <body>
     <h1>Ajax, Rest and Promises</h1>
@@ -26,7 +39,7 @@
 // Display a list of posts.
 // When the user clicks on a post, display all the comments from that post
 // Display a link back to all posts -->
-    <div class="container">
+    <div class="jumbotron">
       <button id="get-all" onclick="getAll()">Get All Posts</button>
       <button id="hide" onclick="hideAll()">Hide</button>
       <button id="replace" onclick="replacePost()">Replace Post 12</button>
@@ -57,8 +70,10 @@
           <input type="submit" placeholder="Submit" />
         </label>
       </form>
+    </div>
+    <div class="container">
       <div id="posts">
-        <ul id="post"></ul>
+        <ul class="card" id="post"></ul>
       </div>
     </div>
     <script src="./app.js"></script>
